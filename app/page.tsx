@@ -1,7 +1,8 @@
+import Navbar from "../components/Navbar";
 export default async function Home() {
   return (
-    <main>
-      <h1>Hello Worlds</h1>
+    <main className=" h-1/2 w-full">
+      <Navbar />
     </main>
   );
 }
