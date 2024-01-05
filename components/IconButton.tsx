@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Spinner from "./Spinner";
 
@@ -15,6 +16,7 @@ const IconButton = ({
       type="button"
       className="hover:bg-buttonSecondary hover:rounded-full"
       style={{ width: 40, height: 40 }}
+      onClick={onClick}
     >
       {isLoading ? <Spinner /> : children}
     </button>

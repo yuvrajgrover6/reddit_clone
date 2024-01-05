@@ -1,9 +1,16 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import PrimaryButton from "./PrimaryButton";
 import QrCodeScannerRoundedIcon from "@mui/icons-material/QrCodeScannerRounded";
 import IconButton from "./IconButton";
-import { MoreHorizSharp } from "@mui/icons-material";
+import {
+  AdsClickRounded,
+  LoginRounded,
+  MoreHorizSharp,
+  WorkOutlineRounded,
+} from "@mui/icons-material";
+import Dropdown from "./Dropdown";
 
 const Navbar = () => {
   return (
@@ -15,7 +22,6 @@ const Navbar = () => {
           alt="logo"
           width={"116"}
           height={"55"}
-          // objectFit="cover"
         />
       </div>
 
@@ -63,9 +69,25 @@ const Navbar = () => {
         />
 
         <PrimaryButton children={"Log In"} onClick={() => {}} />
-        <IconButton
-          children={<MoreHorizSharp className="text-textSecondary" />}
-          onClick={() => {}}
+        <Dropdown
+          icon={<MoreHorizSharp />}
+          children={[
+            {
+              label: "Log In / Sign Up",
+              icon: <LoginRounded />,
+              onClick: () => {},
+            },
+            {
+              label: "Advertise on Reddit",
+              icon: <AdsClickRounded />,
+              onClick: () => {},
+            },
+            {
+              label: "Shop Collectible Avatars",
+              icon: <WorkOutlineRounded />,
+              onClick: () => {},
+            },
+          ]}
         />
       </div>
     </nav>
