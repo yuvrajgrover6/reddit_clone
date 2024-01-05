@@ -14,10 +14,13 @@
     "@mui/icons-material": "^5.15.2",
     "@mui/material": "^5.15.2",
     "@prisma/client": "^5.7.1",
+    "i": "^0.3.7",
     "next": "14.0.4",
+    "npm": "^10.2.5",
     "prisma": "^5.7.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-scrollbar-hide": "^1.1.7"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} ./prisma/seed.ts"

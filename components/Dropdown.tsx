@@ -31,8 +31,8 @@ const Dropdown = ({ children, className, icon }: DropdownProps) => {
         className={` ${className} z-10 hidden  bg-white divide-y divide-gray-100 absolute right-6 top-14 shadow-xl w-64`}
       >
         <ul className="py-2 text-sm " aria-labelledby="dropdownDefaultButton">
-          {children.map((child) => (
-            <li>
+          {children.map((child, index) => (
+            <li key={index}>
               <div
                 className=" px-4 py-2 hover:bg-gray-100 mb-2 flex gap-3"
                 onClick={child.onClick}

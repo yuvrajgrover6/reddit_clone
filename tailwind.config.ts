@@ -22,6 +22,6 @@ const config: Config = {
       fontFamily: { custom: ["'Noto Sans', sans-serif"] },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar-hide")],
 };
 export default config;
