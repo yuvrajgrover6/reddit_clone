@@ -11,8 +11,11 @@ import {
   WorkOutlineRounded,
 } from "@mui/icons-material";
 import Dropdown from "./Dropdown";
+import { LoginDialog } from "./LoginDialog";
 
 const Navbar = () => {
+  const [dialogOpen, setDialogOpen] = React.useState(false);
+
   return (
     <nav className="flex justify-between align-middle bg-white px-7 py-2 border-b border-1 border-black-500">
       <div className="leftNav flex">
@@ -68,7 +71,20 @@ const Navbar = () => {
           isSecondary
         />
 
-        <PrimaryButton children={"Log In"} onClick={() => {}} />
+        <PrimaryButton
+          children={"Log In"}
+          onClick={() => {
+            setDialogOpen(true);
+          }}
+        />
+
+        <LoginDialog
+          open={dialogOpen}
+          handleClose={() => {
+            setDialogOpen(false);
+          }}
+        />
+
         <Dropdown
           icon={<MoreHorizSharp />}
           children={[

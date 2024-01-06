@@ -17,6 +17,7 @@ const PrimaryButton = ({
   return (
     <button
       type="button"
+      onClick={onClick}
       className={`${buttonColor} font-custom focus:outline-none ${textColor} ${hoverColor}
         focus:ring-4 focus:ring-orange-700 font-bold  text-sm px-3 py-2  dark:focus:ring-orange-900 rounded-full`}
     >
