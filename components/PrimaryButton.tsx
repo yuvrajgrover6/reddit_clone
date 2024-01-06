@@ -17,7 +17,7 @@ const PrimaryButton = ({
   return (
     <button
       type="button"
-      className={`${buttonColor} font-custom focus:outline-none ${textColor} ${hoverColor}
+      className={`${buttonColor} font-custom focus:outline-none ${textColor} ${hoverColor} ${className} disabled:opacity-50 disabled:cursor-not-allowed
         focus:ring-4 focus:ring-orange-700 font-bold  text-sm px-3 py-2  dark:focus:ring-orange-900 rounded-full`}
     >
       {isLoading ? <Spinner /> : children}

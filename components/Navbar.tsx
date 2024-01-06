@@ -14,7 +14,7 @@ import Dropdown from "./Dropdown";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between align-middle bg-white px-7 py-2 border-b border-1 border-black-500">
+    <nav className="flex justify-between align-middle bg-white px-7 py-2 border-b border-1 border-black-500 sticky top-0 z-10">
       <div className="leftNav flex">
         <Image
           className="self-center"
