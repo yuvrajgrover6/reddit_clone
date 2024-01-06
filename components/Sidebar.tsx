@@ -20,7 +20,7 @@ import HeadingBar from "./HeadingBar";
 const Sidebar = () => {
   const [active, setActive] = React.useState(0);
   return (
-    <div className="w-64 border-r border-1 py-4 px-4 max-h-screen overflow-y-auto custom-scrollbar">
+    <div className="w-64 border-r border-1 py-4 px-4 max-h-screen overflow-y-auto custom-scrollbar sticky">
       <ul className="list-none">
         <li>
           <Tabbar
