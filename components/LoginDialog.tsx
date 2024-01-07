@@ -14,6 +14,7 @@ import { Close } from "@mui/icons-material";
 import { relative } from "path";
 import React from "react";
 import { PrismaClient, User } from "@prisma/client";
+import { getCookie, setCookie } from "cookies-next";
 
 export const LoginDialog = ({
   open,
@@ -36,10 +37,13 @@ export const LoginDialog = ({
       }
     );
     if (userData.status === 200) {
-      const user: { user: User } = await userData.json();
+      const user: { user: User; token: string } = await userData.json();
       setUser(user.user);
       console.log("user");
       console.log(user);
+      // REVIEW: is this the best way to manage auth state?
+      // REVIEW: Maybe user and token both don't need to be stored in localStorage
+      await setCookie("token", user.token);
     } else {
       console.log("Invalid user: " + userData.status);
     }
