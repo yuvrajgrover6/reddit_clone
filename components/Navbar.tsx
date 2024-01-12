@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 import Image from "next/image";
 import PrimaryButton from "./PrimaryButton";
@@ -12,9 +11,12 @@ import {
 } from "@mui/icons-material";
 import Dropdown from "./Dropdown";
 import { LoginDialog } from "./LoginDialog";
+import { getCurrentUser } from "@/lib/session";
+import AuthProvider from "./AuthProvider";
 
-const Navbar = () => {
-  const [dialogOpen, setDialogOpen] = React.useState(false);
+const Navbar = async () => {
+  // const [dialogOpen, setDialogOpen] = React.useState(false);
+  const session = await getCurrentUser();
 
   return (
     <nav className="flex justify-between align-middle bg-white px-7 py-2 border-b border-1 border-black-500 sticky top-0 z-10">
@@ -59,53 +61,58 @@ const Navbar = () => {
         </form>
       </div>
 
-      <div className="rightNav flex gap-2">
-        <PrimaryButton
-          children={
-            <div className="flex gap-1 align-middle justify-center">
-              <QrCodeScannerRoundedIcon />
-              <span className="self-center">Get app</span>
-            </div>
-          }
-          onClick={() => {}}
-          isSecondary
-        />
+      {session?.user ? (
+        <div>{session.user.email}</div>
+      ) : (
+        <div className="rightNav flex gap-2">
+          <PrimaryButton
+            children={
+              <div className="flex gap-1 align-middle justify-center">
+                <QrCodeScannerRoundedIcon />
+                <span className="self-center">Get app</span>
+              </div>
+            }
+            onClick={() => {}}
+            isSecondary
+          />
+          <AuthProvider />
 
-        <PrimaryButton
-          children={"Log In"}
-          onClick={() => {
-            setDialogOpen(true);
-          }}
-        />
+          <PrimaryButton
+            children={"Log In"}
+            onClick={() => {
+              // setDialogOpen(true);
+            }}
+          />
 
-        <LoginDialog
-          open={dialogOpen}
-          handleClose={() => {
-            setDialogOpen(false);
-          }}
-        />
+          {/* <LoginDialog
+            open={dialogOpen}
+            handleClose={() => {
+              setDialogOpen(false);
+            }}
+          /> */}
 
-        <Dropdown
-          icon={<MoreHorizSharp />}
-          children={[
-            {
-              label: "Log In / Sign Up",
-              icon: <LoginRounded />,
-              onClick: () => {},
-            },
-            {
-              label: "Advertise on Reddit",
-              icon: <AdsClickRounded />,
-              onClick: () => {},
-            },
-            {
-              label: "Shop Collectible Avatars",
-              icon: <WorkOutlineRounded />,
-              onClick: () => {},
-            },
-          ]}
-        />
-      </div>
+          <Dropdown
+            icon={<MoreHorizSharp />}
+            children={[
+              {
+                label: "Log In / Sign Up",
+                icon: <LoginRounded />,
+                onClick: () => {},
+              },
+              {
+                label: "Advertise on Reddit",
+                icon: <AdsClickRounded />,
+                onClick: () => {},
+              },
+              {
+                label: "Shop Collectible Avatars",
+                icon: <WorkOutlineRounded />,
+                onClick: () => {},
+              },
+            ]}
+          />
+        </div>
+      )}
     </nav>
   );
 };

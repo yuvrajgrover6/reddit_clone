@@ -13,7 +13,7 @@ export default async function Home() {
         <div className="w-3/5 h-full my-4">
           <HorizontalImageView />
           <Textpost />
-          <MediaPost />
+          {/* <MediaPost /> */}
           <Textpost />
           <Textpost />
           <Textpost />
